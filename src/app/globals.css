@@ -19,3 +19,11 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+input, button {
+  @apply w-full p-2 border border-gray-300 rounded bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100;
+}
+
+button {
+  @apply bg-blue-500 text-white;
+}
