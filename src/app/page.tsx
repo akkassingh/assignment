@@ -31,7 +31,7 @@ const Page = () => {
       const response = await fetch(url, options);
       const data = await response.json();
       setCurrent(data.current);
-    } catch (error) {
+    } catch {
       setError('Error fetching data');
     } finally {
       setLoading(false);
