@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 const rapidApiKey = process.env.NEXT_PUBLIC_RAPIDAPI_KEY;
 
 const Page = () => {
@@ -10,6 +10,22 @@ const Page = () => {
   const [current, setCurrent] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [lambdaResponse, setLambdaResponse] = useState('');
+
+  useEffect(() => {
+    const fetchLambdaResponse = async () => {
+      try {
+        const response = await fetch('https://gdctk5uavz64ikcotkvkypid3y0sehrx.lambda-url.us-east-1.on.aws');
+        console.log(response);
+        const data = await response.json();
+        setLambdaResponse(data.body);
+      } catch {
+        setError('Error fetching Lambda response');
+      }
+    };
+
+    fetchLambdaResponse();
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,7 +40,7 @@ const Page = () => {
       method: 'GET',
       headers: {
         'x-rapidapi-host': 'electrical-units.p.rapidapi.com',
-        'x-rapidapi-key': rapidApiKey,
+        'x-rapidapi-key': rapidApiKey || '',
       }
     };
 
@@ -41,7 +57,7 @@ const Page = () => {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4">Single Phase Power to Current Converter</h1>
+      <h1 className="text-2xl font-bold mb-4">{lambdaResponse || 'Single Phase Power to Current Converter'}</h1>
       <form onSubmit={handleSubmit} className="w-full max-w-md bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
         <div className="mb-4">
           <label className="block text-gray-700 dark:text-gray-300 mb-2" htmlFor="power">Power (Watts)</label>
