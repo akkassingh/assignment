@@ -1,10 +1,49 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.1.1 Safari/605.1.15" version="25.0.3">
-  <diagram name="Page-1" id="NDGx2BA4Lw0R1HzaWDMf">
-    <mxGraphModel>
-      <root>
-        <mxCell id="0" />
-        <mxCell id="1" parent="0" />
-      </root>
-    </mxGraphModel>
-  </diagram>
+<mxfile host="65bd71144e">
+    <diagram name="Page-1" id="NDGx2BA4Lw0R1HzaWDMf">
+        <mxGraphModel dx="906" dy="654" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="github_repo" value="GitHub Repository" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#333399;fontColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="100" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="github_actions" value="GitHub Actions" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#008CBA;fontColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="250" y="100" width="150" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="pipeline_steps" value="- Checkout Code\n- Build\n- Test\n- Package Artifacts" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#D6EBFF;fontColor=#000000;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="450" y="100" width="180" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="s3_bucket" value="S3 Bucket (Static Hosting)" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#FF9900;fontColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="700" y="100" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="lambda_api" value="AWS Lambda (APIs)" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#FF9900;fontColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="700" y="200" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="cloudfront" value="CloudFront CDN" style="shape=hexagon;whiteSpace=wrap;html=1;fillColor=#76B900;fontColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="900" y="100" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="cloudwatch" value="CloudWatch Monitoring" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#232F3E;fontColor=#FFFFFF;strokeColor=#000000;" parent="1" vertex="1">
+                    <mxGeometry x="900" y="200" width="160" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn_1" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#000000;" parent="1" source="github_repo" target="github_actions" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn_2" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#000000;" parent="1" source="github_actions" target="pipeline_steps" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn_3" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#000000;" parent="1" source="pipeline_steps" target="s3_bucket" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn_4" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#000000;" parent="1" source="pipeline_steps" target="lambda_api" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn_5" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#000000;" parent="1" source="s3_bucket" target="cloudfront" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="conn_6" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#000000;" parent="1" source="lambda_api" target="cloudwatch" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
 </mxfile>

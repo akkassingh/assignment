@@ -34,3 +34,27 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+## About the App
+
+This application converts single-phase power (watts) to current (amperes). It is designed to help users quickly and accurately perform this conversion, which is essential for various electrical engineering tasks.
+
+### Features
+
+- **Real-time Conversion**: Input the power in watts, and the app instantly calculates the corresponding current in amperes.
+- **User-Friendly Interface**: Simple and intuitive design for ease of use.
+- **Responsive Design**: Works seamlessly on both desktop and mobile devices.
+
+### Technical Details
+
+- **Framework**: Built with [Next.js](https://nextjs.org), a powerful React framework for production.
+- **Fonts**: Utilizes [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to optimize and load [Geist](https://vercel.com/font), a modern font family from Vercel.
+- **Deployment**: Deployed on Amazon Amplify, ensuring high availability and scalability.
+
+### Live Demo
+
+Check out the live version of the application [here](https://main.d20fwno3lcdku3.amplifyapp.com).
+

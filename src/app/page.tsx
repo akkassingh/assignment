@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+const rapidApiKey = process.env.NEXT_PUBLIC_RAPIDAPI_KEY;
 
 const Page = () => {
   const [power, setPower] = useState('');
@@ -23,7 +24,7 @@ const Page = () => {
       method: 'GET',
       headers: {
         'x-rapidapi-host': 'electrical-units.p.rapidapi.com',
-        'x-rapidapi-key': 'ddc5fc6237msh7d5778b4a26792cp19743ajsn5320a802f1e2'
+        'x-rapidapi-key': rapidApiKey,
       }
     };
 
