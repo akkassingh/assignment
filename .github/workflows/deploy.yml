@@ -34,8 +34,8 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
 
-    - name: Pull Amplify project
-      run: amplify pull --appId d1sf982js4jonu --envName dev --yes
+    - name: Initialize Amplify
+      run: amplify init --yes --amplify "{\"envName\":\"dev\"}" --providers "{\"awscloudformation\":{\"configLevel\":\"project\",\"useProfile\":false,\"accessKeyId\":\"${{ secrets.AWS_ACCESS_KEY_ID }}\",\"secretAccessKey\":\"${{ secrets.AWS_SECRET_ACCESS_KEY }}\",\"region\":\"us-east-1\"}}" --categories "{}"
 
     - name: Deploy to AWS Amplify
       run: amplify publish --yes
