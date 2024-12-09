@@ -55,48 +55,53 @@ const Page = () => {
   };
 
   return (
-    <div>
-      <h1 className="text-2xl font-bold mb-4">{lambdaResponse || 'Single Phase Power to Current Converter'}</h1>
-      <form onSubmit={handleSubmit} className="w-full max-w-md bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
-        <div className="mb-4">
-          <label className="block text-gray-700 dark:text-gray-300 mb-2" htmlFor="power">Power (Watts)</label>
-          <input
-            type="number"
-            id="power"
-            value={power}
-            onChange={(e) => setPower(e.target.value)}
-            required
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-gray-700 dark:text-gray-300 mb-2" htmlFor="voltage">Voltage (Volts)</label>
-          <input
-            type="number"
-            id="voltage"
-            value={voltage}
-            onChange={(e) => setVoltage(e.target.value)}
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-gray-700 dark:text-gray-300 mb-2" htmlFor="powerFactor">Power Factor</label>
-          <input
-            type="number"
-            step="0.01"
-            id="powerFactor"
-            value={powerFactor}
-            onChange={(e) => setPowerFactor(e.target.value)}
-          />
-        </div>
-        <button type="submit" className="w-full p-2 bg-blue-500 text-white rounded">
-          {loading ? 'Converting...' : 'Convert'}
-        </button>
-        {error && <p className="text-red-500 mt-2">{error}</p>}
-      </form>
-      {current !== null && (
-        <div className="mt-4 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md">
-          <p className="text-lg">Current: <span className="font-bold">{current} Amperes</span></p>
-        </div>
-      )}
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900">
+      <div className="w-full max-w-lg bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg">
+        <h1 className="text-3xl font-bold mb-6 text-center text-gray-800 dark:text-gray-200">{lambdaResponse || 'Single Phase Power to Current Converter'}</h1>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            <label className="block text-gray-700 dark:text-gray-300 mb-2" htmlFor="power">Power (Watts)</label>
+            <input
+              type="number"
+              id="power"
+              value={power}
+              onChange={(e) => setPower(e.target.value)}
+              required
+              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <div>
+            <label className="block text-gray-700 dark:text-gray-300 mb-2" htmlFor="voltage">Voltage (Volts)</label>
+            <input
+              type="number"
+              id="voltage"
+              value={voltage}
+              onChange={(e) => setVoltage(e.target.value)}
+              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <div>
+            <label className="block text-gray-700 dark:text-gray-300 mb-2" htmlFor="powerFactor">Power Factor</label>
+            <input
+              type="number"
+              step="0.01"
+              id="powerFactor"
+              value={powerFactor}
+              onChange={(e) => setPowerFactor(e.target.value)}
+              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+          <button type="submit" className="w-full p-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-300">
+            {loading ? 'Converting...' : 'Convert'}
+          </button>
+          {error && <p className="text-red-500 mt-2 text-center">{error}</p>}
+        </form>
+        {current !== null && (
+          <div className="mt-6 p-4 bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md">
+            <p className="text-lg text-center text-gray-800 dark:text-gray-200">Current: <span className="font-bold">{current} Amperes</span></p>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
