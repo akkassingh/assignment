@@ -16,9 +16,8 @@ const Page = () => {
     const fetchLambdaResponse = async () => {
       try {
         const response = await fetch('https://gdctk5uavz64ikcotkvkypid3y0sehrx.lambda-url.us-east-1.on.aws');
-        console.log(response);
         const data = await response.json();
-        setLambdaResponse(data.body);
+        setLambdaResponse(data);
       } catch {
         setError('Error fetching Lambda response');
       }
