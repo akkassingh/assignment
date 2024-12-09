@@ -35,7 +35,7 @@ jobs:
         aws-region: us-east-1
 
     - name: Pull Amplify project
-      run: amplify pull --appId d2af28nygqxjn --envName dev --yes
+      run: amplify pull --appId d1sf982js4jonu --envName assignment --yes
 
     - name: Deploy to AWS Amplify
       run: amplify publish --yes
